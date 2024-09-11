@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-app-dev
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: "web-app=noizysthlm/flask-app"
+    argocd-image-updater.argoproj.io/write-back-method: git
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/noizy-sthlm/argo-cd-multibranch-pipeline
+    path: k8s-manifests/dev
+    targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: python-flask
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
