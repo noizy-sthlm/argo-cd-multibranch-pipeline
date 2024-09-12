@@ -26,4 +26,3 @@ jobs:
     - name: Push the Docker image with both tags
       run: |
         docker push noizysthlm/flask-app:${{ github.sha }}
-        docker push noizysthlm/flask-app:latest
