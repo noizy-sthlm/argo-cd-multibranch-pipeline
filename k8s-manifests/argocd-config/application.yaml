@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/noizy-sthlm/argo-cd-multibranch-pipeline
-    path: k8s-manifests/dev
+    path: k8s-manifests
     targetRevision: dev
     kustomize: {}
   destination:
